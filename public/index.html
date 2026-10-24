@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Find which hospitals offer MRI, CT, X-ray and emergency care right now, and when they last updated.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F766E'/%3E%3Cpath d='M13 7h6v6h6v6h-6v6h-6v-6H7v-6h6z' fill='white'/%3E%3C/svg%3E"><title>Hospital Finder</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/layout.js"></script><script src="js/api.js"></script></head><body>
+<div id="nav"></div>
+<header class="hero2"><div class="container"><div class="row g-5 align-items-center">
+ <div class="col-lg-7">
+  <p class="eyebrow">Hospital availability, live</p>
+  <h1 class="mb-4">Know which hospital can help before you go.</h1>
+  <p class="lead text-muted lead-narrow mb-5">See which hospitals offer MRI, CT, X-ray and emergency care right now, and exactly when each one last updated.</p>
+  <form action="search.html" class="search-panel row g-2 mb-4">
+   <div class="col-md-5"><select name="service" id="service" class="form-select form-select-lg" aria-label="Service"><option value="">Any service</option></select></div>
+   <div class="col-md-4"><input name="city" class="form-control form-control-lg" placeholder="City" aria-label="City"></div>
+   <div class="col-md-3 d-grid"><button class="btn btn-primary btn-lg">Search</button></div>
+  </form>
+  <a class="sos" href="emergency.html">Emergency? Find open hospitals and call an ambulance</a>
+ </div>
+ <div class="col-lg-5">
+  <div class="live p-4">
+   <div class="d-flex align-items-center justify-content-between mb-2">
+    <h2 class="h6 mb-0"><span class="live-dot"></span>Open for emergencies now</h2><a class="small" href="emergency.html">See all</a>
+   </div>
+   <div id="livelist"><p class="text-muted mb-0">Loading...</p></div>
+  </div>
+ </div>
+</div></div></header>
+
+<section class="section-white py-5"><div class="container"><div class="row g-4">
+ <div class="col-6 col-lg-3"><div class="stat" id="sHospitals">-</div><div class="text-muted mt-2">Hospitals listed</div></div>
+ <div class="col-6 col-lg-3"><div class="stat" id="sOpen">-</div><div class="text-muted mt-2">With emergency care open</div></div>
+ <div class="col-6 col-lg-3"><div class="stat" id="sFresh">-</div><div class="text-muted mt-2">Updated in the last 12 hours</div></div>
+ <div class="col-6 col-lg-3"><div class="stat" id="sServices">-</div><div class="text-muted mt-2">Different services listed</div></div>
+</div></div></section>
+
+<section class="section"><div class="container">
+ <p class="eyebrow">Browse</p>
+ <h2>Search by service</h2>
+ <p class="text-muted lead-narrow mb-5">Pick what you need and see only the hospitals that offer it today.</p>
+ <div class="row g-3" id="tiles"></div>
+</div></section>
+
+<section class="section section-white"><div class="container">
+ <p class="eyebrow">How it works</p>
+ <h2 class="mb-5">Three steps, no phone calls</h2>
+ <div class="row g-5">
+  <div class="col-md-4"><div class="step-num">1</div><h3 class="h5">Choose what you need</h3><p class="text-muted">A scan, a specialist, or emergency care. Add your city if you like.</p></div>
+  <div class="col-md-4"><div class="step-num">2</div><h3 class="h5">See who is available</h3><p class="text-muted">Each hospital lists the services it has today. The freshest and closest come first.</p></div>
+  <div class="col-md-4"><div class="step-num">3</div><h3 class="h5">Call or get directions</h3><p class="text-muted">Call the hospital or its ambulance in one tap, or open directions in Google Maps.</p></div>
+ </div>
+</div></section>
+
+<section class="section"><div class="container"><div class="row g-5 align-items-center">
+ <div class="col-lg-6">
+  <p class="eyebrow">Trust the data</p>
+  <h2>Every listing shows when it was last updated</h2>
+  <p class="text-muted lead-narrow">A data specialist at each hospital updates their listing at least twice a day. The colored badge tells you how recent the information is, so you know when to call first.</p>
+ </div>
+ <div class="col-lg-6"><div class="card"><div class="card-body p-4">
+  <div class="d-flex flex-wrap align-items-center gap-3 mb-3"><span class="fresh fresh-green">Updated 2 h ago</span><span class="text-muted">Recent. Safe to rely on.</span></div>
+  <div class="d-flex flex-wrap align-items-center gap-3 mb-3"><span class="fresh fresh-amber">Updated 8 h ago</span><span class="text-muted">A few hours old. Things may have changed.</span></div>
+  <div class="d-flex flex-wrap align-items-center gap-3"><span class="fresh fresh-red">Updated 15 h ago (may be outdated)</span><span class="text-muted">Call before you go.</span></div>
+ </div></div></div>
+</div></div></section>
+
+<section class="band-red"><div class="container d-flex flex-wrap align-items-center justify-content-between gap-4">
+ <div><h2 class="mb-2">In an emergency, do not check hospitals one by one.</h2><p class="mb-0 opacity-75">One page shows who is open now, with a one-tap ambulance call.</p></div>
+ <a class="btn btn-light btn-lg" href="emergency.html">Find open emergency care</a>
+</div></section>
+
+<section class="section"><div class="container"><div class="card"><div class="card-body p-4 p-lg-5"><div class="row g-4 align-items-center">
+ <div class="col-lg-7">
+  <p class="eyebrow">For hospitals</p>
+  <h2>Get found by the people who need you</h2>
+  <p class="text-muted mb-0">Register your hospital, get approved, and keep your services and emergency status current from a simple dashboard. Patients see exactly what you offer and when you last updated.</p>
+ </div>
+ <div class="col-lg-5 d-flex flex-wrap gap-2 justify-content-lg-end">
+  <a class="btn btn-primary btn-lg" href="register.html">Register your hospital</a>
+  <a class="btn btn-outline-secondary btn-lg" href="login.html">Hospital login</a>
+ </div>
+</div></div></div></div></section>
+
+<section class="section section-white"><div class="container" style="max-width:760px">
+ <p class="eyebrow">Questions</p>
+ <h2 class="mb-4">Good to know</h2>
+ <div class="accordion" id="faq">
+  <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q1">How current is the information?</button></h3>
+   <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">Hospital staff enter it themselves and are asked to update at least twice a day. Every listing shows its last update time, so check the badge.</div></div></div>
+  <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q2">Does this replace calling emergency services?</button></h3>
+   <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">No. In a life-threatening situation, call your national emergency number first. This site helps you find a hospital that is open and has what you need.</div></div></div>
+  <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q3">Do you store my location?</button></h3>
+   <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">No. Sharing your location is optional. It is used only to sort hospitals by distance, and it is not saved on our server.</div></div></div>
+  <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#q4">How can my hospital join?</button></h3>
+   <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body text-muted">Register on the hospital registration page. An administrator reviews and approves each hospital before it appears in search.</div></div></div>
+ </div>
+</div></section>
+<script>
+ const $ = id => document.getElementById(id);
+ ALL_SERVICES.forEach(s => $("service").add(new Option(s, s)));
+
+ (async () => {
+  const [all, open] = await Promise.all([api.hospitals(), api.emergency()]);
+
+  $("livelist").innerHTML = open === null
+   ? `<p class="text-muted mb-0">Could not load. <a href="emergency.html">Open the emergency page</a>.</p>`
+   : open.length ? open.slice(0, 3).map(h => `<div class="row-line d-flex justify-content-between align-items-start gap-2 py-3">
+      <div><div class="fw-semibold">${esc(h.name)}</div>
+      <div class="small text-muted">${esc(h.city)}${h.distance_km != null ? ", " + h.distance_km + " km away" : ""}</div></div>
+      ${freshBadge(h.last_updated)}</div>`).join("")
+   : `<p class="text-muted mb-0">No hospital has reported emergency care open.</p>`;
+
+  if (all) {
+   $("sHospitals").textContent = all.length;
+   $("sOpen").textContent = all.filter(h => h.emergency_open).length;
+   $("sFresh").textContent = all.filter(h => hoursSince(h.last_updated) < 12).length;
+   $("sServices").textContent = new Set(all.flatMap(h => h.services)).size;
+  }
+
+  $("tiles").innerHTML = ALL_SERVICES.filter(s => s !== "Emergency").map(s => {
+   const n = all ? all.filter(h => h.services.includes(s)).length : null;
+   const note = n === null ? "" : n === 0 ? "None listed yet" : n + (n === 1 ? " hospital" : " hospitals");
+   return `<div class="col-6 col-md-4 col-lg-3"><a class="tile h-100" href="search.html?service=${encodeURIComponent(s)}">${s}
+    <span class="d-block small fw-normal text-muted mt-1">${note}</span></a></div>`;
+  }).join("");
+ })();
+</script>
+<div id="foot"></div></body></html>

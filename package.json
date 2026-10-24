@@ -1,0 +1,37 @@
+
+{
+  "name": "tena-search",
+  "version": "1.0.0",
+  "description": ">A hospital service directory for Ethiopia that helps you find nearby healthcare facilities with the service you need, right now!\r > **Status:** 🚧 In development. Core search and dashboards are being built.\r ## Why\r   When someone needs urgent care, calling around or driving to a facility that\r   turns out to lack the right service wastes critical time. Patients have no\r   reliable way to see what a hospital offers at that moment.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --env-file=.env --watch server.js",
+    "start": "node server.js",
+    "set-passwords": "node --env-file=.env scripts/set-demo-passwords.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dibmbe13-netizen/tena-search.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dibmbe13-netizen/tena-search/issues"
+  },
+  "homepage": "https://github.com/dibmbe13-netizen/tena-search#readme",
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.2"
+  }
+}
