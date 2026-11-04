@@ -4,7 +4,7 @@
 ## Project name: tena-search
 ## Link: https://tena-search.onrender.com
 ## Link to video: https://drive.google.com/file/d/10X0j8gA2RYYu-2w7ie7fQDZR5oupjZo1/view?usp=drive_link
-
+## Link to documentation: https://docs.google.com/document/d/1nDcS6cJZI-Ulr94exqvtIwn5p3u8VnmiPx86U34gvVI/edit?usp=sharing
 
 
 # tena-search
